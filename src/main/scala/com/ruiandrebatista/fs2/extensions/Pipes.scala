@@ -11,7 +11,7 @@ object Pipes {
    * @param concurrencyLevel howmany operations run in parallel
    */
   def mapAsyncUnordered[F[_]: Async, I, O](f: I => F[O])(concurrencyLevel: Int): Pipe[F, I, O] = { s: Stream[F, I] =>
-    def mkInner(elem: I) = Stream.emit(elem).evalMap(f)
+    def mkInner(elem: I) = Stream.eval(f(elem))
     concurrent.join(concurrencyLevel)(s.map(mkInner(_)))
   }
 }
