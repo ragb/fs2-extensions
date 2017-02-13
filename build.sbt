@@ -9,6 +9,7 @@ lazy val root = (project in file(".")).
     name := "fs2-extensions",
     libraryDependencies ++= Seq(
       fs2Core,
-      scalaTest % Test
+      scalaTest % Test,
+      scalacheck % Test
     )
   )
