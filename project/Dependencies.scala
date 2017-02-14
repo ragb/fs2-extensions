@@ -2,10 +2,11 @@ import sbt._
 
 object Dependencies {
   lazy val fs2Core = "co.fs2" %% "fs2-core" % fs2Version
-  lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.0.1"
-  lazy val scalacheck = "org.scalacheck" %% "scalacheck" % "1.13.4"
+  lazy val specs2Core = "org.specs2" %% "specs2-core" % specs2Version
+  lazy val specs2Scalacheck = "org.specs2" %% "specs2-scalacheck" % specs2Version
 
-  val fs2Version = "0.9.2"
+  val fs2Version = "0.9.3"
+  val specs2Version = "3.8.8"
 }
 
 
