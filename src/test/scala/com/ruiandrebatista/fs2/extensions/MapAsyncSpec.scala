@@ -11,7 +11,7 @@ import com.ruiandrebatista.fs2.extensions.syntax._
 
 class MapAsyncSpec(implicit executionEnv: ExecutionEnv) extends mutable.Specification with ScalaCheck {
   implicit val strategy = Strategy.fromCachedDaemonPool("fs2")
-  val concurrencyGen = Arbitrary(Gen.chooseNum(1, 10))
+  val concurrencyGen = Arbitrary(Gen.choose(1, 10))
 
   def expectLog[A](stream: Stream[Task, A], expected: Attempt[Vector[A]]) = {
     stream.runLog.attempt.unsafeRunAsyncFuture must beEqualTo(expected).await
