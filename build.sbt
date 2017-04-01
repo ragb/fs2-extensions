@@ -5,6 +5,7 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "com.ruiandrebatista",
       scalaVersion := "2.11.8",
+      licenses += ("Apache-2.0", url("http://www.apache.org/licenses/LICENSE-2.0")),
 scalacOptions ++= Seq(
   "-deprecation",           
   "-encoding", "UTF-8",       // yes, this is 2 args
