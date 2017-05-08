@@ -40,7 +40,7 @@ class MapAsyncSpec(implicit executionEnv: ExecutionEnv) extends mutable.Specific
       val s2 = Stream[Task, Int](1)
         .flatMap { _: Int => Stream.fail(Exc) }
         .mapAsync((i: Int) => Task.delay(i))(10)
-      expectLog(s, Left(Exc))
+      expectLog(s2, Left(Exc))
     }
   }
 
